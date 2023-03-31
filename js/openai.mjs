@@ -1,3 +1,7 @@
+export async function sendToOpenAI(message) {
+  // function implementation here
+}
+
 import { Configuration, OpenAIApi } from 'openai';
 
 const configuration = new Configuration({
