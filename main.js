@@ -3,36 +3,38 @@ import { sendToOpenAI } from './openai.mjs';
 
 $(function() {
   // Selector for the chatbox elements
-  var $chatboxContainer = $('.chatbox-container');
-  var $chatboxMessages = $('.chatbox-messages');
-  var $chatboxInput = $('.chatbox-input input[type="text"]');
-  var $chatboxSendButton = $('.chatbox-input button');
+  const $chatboxContainer = $('.chatbox-container');
+  const $chatboxMessages = $('.chatbox-messages');
+  const $chatboxInput = $('.chatbox-input input[type="text"]');
+  const $chatboxSendButton = $('.chatbox-input button');
 
   // Function to append a message to the message history
   function appendMessage(message) {
-    var $messageElement = $('<div>').text(message);
+    const $messageElement = $('<div>').text(message);
     $chatboxMessages.append($messageElement);
   }
 
   // Function to handle sending a message
   async function sendMessage() {
-    var message = $chatboxInput.val();
+    const message = $chatboxInput.val();
     appendMessage("You: " + message);
     $chatboxInput.val('');
 
     // Send the message to OpenAI
-    var response = await sendToOpenAI(message);
+    const response = await sendToOpenAI(message);
 
     // Extract the country and color from the OpenAI response
-    var countryColorRegex = /The country is (.+?) and the color is (.+?)\./;
-    var matches = response.match(countryColorRegex);
+    const countryColorRegex = /The country is (.+?) and the color is (.+?)\./;
+    const matches = response.match(countryColorRegex);
 
     if (matches) {
-      var country = matches[1];
-      var color = matches[2];
+      const country = matches[1];
+      const color = matches[2];
 
-      // Create a map with Leaflet
-      createMap(country, color);
+      // Create a map with Mapbox
+      const mapUrl = `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/${country}.json?access_token=${MAPBOX_ACCESS_TOKEN}&color=${color}&size=640x640`;
+      const $mapElement = $('<img>').attr('src', mapUrl);
+      appendMessage($mapElement);
     } else {
       appendMessage("ChatMaps: I'm sorry, I couldn't extract the country and color from your message.");
     }
