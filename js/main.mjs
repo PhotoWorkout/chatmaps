@@ -1,4 +1,4 @@
-import { sendToOpenAI } from './js/openai.mjs';
+import { sendToOpenAI } from './openai.mjs';
 $(function() {
   // Selector for the chatbox elements
   var $chatboxContainer = $('.chatbox-container');
