@@ -1,6 +1,6 @@
 function createMap(country, color) {
     // Replace this with your Mapbox API access token
-    var mapboxAccessToken = process.env.MAPBOX_API_KEY;
+    var mapboxAccessToken = "{{ secrets.MAPBOX_API_KEY }}";
   
     // Create a new map with Leaflet
     var map = L.map('map').setView([0, 0], 1);
