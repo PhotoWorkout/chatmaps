@@ -6,7 +6,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-async function sendToOpenAI(message) {
+export async function sendToOpenAI(message) {
   const prompt = `Extract country and color from the following message: "${message}"`;
 
   const response = await openai.completions.create({
@@ -21,7 +21,5 @@ async function sendToOpenAI(message) {
   const output = response.choices[0].text.trim();
   return output;
 }
-
-export { sendToOpenAI };
 
 
