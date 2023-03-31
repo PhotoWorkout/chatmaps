@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatMaps</title>
+    <!-- Import CSS styles for chat window -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <!-- Import jQuery and Mapbox libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Chat window container -->
+    <div class="chatbox-container">
+      <!-- Chat messages -->
+      <div class="chatbox-messages"></div>
+      <!-- Chat input field and submit button -->
+      <div class="chatbox-input">
+        <input type="text" placeholder="Type a message and press Enter" />
+        <button>Send</button>
+      </div>
+    </div>
+
+    <!-- Script to handle chat functionality -->
+    <script src="openai-config.js" type="module"></script>
+    <script src="openai.js" type="module"></script>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
