@@ -9,7 +9,7 @@ const openai = new OpenAIApi(configuration);
 export async function sendToOpenAI(message) {
   const prompt = `Extract country and color from the following message: "${message}"`;
 
-  const response = await openai.completions.create({
+  const response = await openai.createCompletions({
     prompt: prompt,
     maxTokens: 50,
     n: 1,

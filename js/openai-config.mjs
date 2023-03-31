@@ -28,7 +28,7 @@ export class OpenAIApi {
     return responseData;
   }
 
-  async completions.create(options) {
+  async createCompletions(options) {
     const response = await this.request('completions', 'POST', options);
     return response;
   }

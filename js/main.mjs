@@ -46,4 +46,7 @@ $(function() {
   // Event handler for the enter key press in the input field
   $chatboxInput.on('keypress', function(event) {
     if (event.which === 13) {
-      sendMessage
+      sendMessage();
+    }
+  });
+});
