@@ -1,9 +1,4 @@
-import { Configuration, OpenAIApi } from './openai.mjs';
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY
-});
-
-const openai = new OpenAIApi(configuration);
+import { configuration, openai } from './openai-config.mjs';
 
 export async function sendToOpenAI(message) {
   const prompt = `Extract country and color from the following message: "${message}"`;
@@ -20,7 +15,3 @@ export async function sendToOpenAI(message) {
   const output = response.choices[0].text.trim();
   return output;
 }
-export { Configuration, OpenAIApi };
-
-
-

@@ -1,5 +1,5 @@
+import { configuration, openai } from './openai-config.mjs';
 import { sendToOpenAI } from './openai.mjs';
-import { Configuration, OpenAIApi } from './openai.mjs';
 
 $(function() {
   // Selector for the chatbox elements
@@ -46,7 +46,4 @@ $(function() {
   // Event handler for the enter key press in the input field
   $chatboxInput.on('keypress', function(event) {
     if (event.which === 13) {
-      sendMessage();
-    }
-  });
-});
+      sendMessage
