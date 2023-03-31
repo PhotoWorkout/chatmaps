@@ -1,4 +1,4 @@
-import { configuration, openai } from './openai-config.mjs';
+import { Configuration, OpenAIApi } from './openai-config.mjs';
 import { sendToOpenAI } from './openai.mjs';
 
 $(function() {

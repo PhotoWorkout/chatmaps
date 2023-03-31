@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from './openai-config.mjs';
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: Deno.env.get("OPENAI_API_KEY")
 });
 
 const openai = new OpenAIApi(configuration);
@@ -9,7 +9,7 @@ const openai = new OpenAIApi(configuration);
 export async function sendToOpenAI(message) {
   const prompt = `Extract country and color from the following message: "${message}"`;
 
-  const response = await openai.createCompletions({
+  const response = await openai.completions.create({
     prompt: prompt,
     maxTokens: 50,
     n: 1,
