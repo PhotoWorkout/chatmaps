@@ -1,4 +1,4 @@
-import { Configuration, OpenAIApi } from 'openai';
+import { Configuration, OpenAIApi } from '@openai/api';
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY
@@ -21,5 +21,3 @@ async function sendToOpenAI(message) {
   const output = response.choices[0].text.trim();
   return output;
 }
-
-
