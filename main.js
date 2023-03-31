@@ -1,4 +1,4 @@
-import { Configuration, OpenAIApi } from './openai-config.mjs';
+import { Configuration, OpenAIApi } from './openai-config.js';
 import { sendToOpenAI } from './openai.mjs';
 
 // Selector for the chatbox elements
