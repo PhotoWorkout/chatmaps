@@ -1,10 +1,6 @@
 import { Configuration, OpenAIApi } from './openai-config.mjs';
 
-const configuration = new Configuration({
-  apiKey: Deno.env.get("OPENAI_API_KEY")
-});
-
-const openai = new OpenAIApi(configuration);
+const openai = new OpenAIApi();
 
 export async function sendToOpenAI(message) {
   const prompt = `Extract country and color from the following message: "${message}"`;
