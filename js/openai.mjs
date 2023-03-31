@@ -22,4 +22,6 @@ async function sendToOpenAI(message) {
   return output;
 }
 
+export { sendToOpenAI };
+
 
