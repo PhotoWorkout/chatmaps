@@ -27,9 +27,17 @@ export class OpenAIApi {
 
     return responseData;
   }
+}
 
-  async createCompletions(options) {
-    const response = await this.request('completions', 'POST', options);
-    return response;
-  }
+export async function createCompletion(configuration, prompt) {
+  const openai = new OpenAIApi(configuration);
+  const response = await openai.request('completions', 'POST', {
+    prompt: prompt,
+    max_tokens: 50,
+    n: 1,
+    stop: null,
+    temperature: 0.5,
+    model: 'davinci-codex',
+  });
+  return response.choices[0].text.trim();
 }
