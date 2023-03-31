@@ -1,5 +1,5 @@
 async function sendToOpenAI(message) {
-  const apiKey = "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"; // Replace with your OpenAI API key
+  const apiKey = "${{ secrets.OPENAI_API_KEY }}";
   const apiURL = "https://api.openai.com/v1/completions";
   const prompt = `Extract country and color from the following message: "${message}"`;
 
