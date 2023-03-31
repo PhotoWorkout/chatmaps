@@ -20,5 +20,7 @@ export async function sendToOpenAI(message) {
   const output = response.choices[0].text.trim();
   return output;
 }
+export { Configuration, OpenAIApi };
+
 
 

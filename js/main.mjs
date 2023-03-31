@@ -1,4 +1,6 @@
 import { sendToOpenAI } from './openai.mjs';
+import { Configuration, OpenAIApi } from './openai.mjs';
+
 $(function() {
   // Selector for the chatbox elements
   var $chatboxContainer = $('.chatbox-container');
@@ -48,4 +50,3 @@ $(function() {
     }
   });
 });
-
